@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var mSubtitleLabel: UILabel!
     @IBOutlet weak var mSkipButton: UIButton!
     @IBOutlet weak var mNextButton: UIButton!
+    @IBOutlet weak var mStartButton: UIButton!
     @IBOutlet weak var mViewButton: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,10 @@ class ViewController: UIViewController {
     private func initUI(){
         mNextButton.layer.cornerRadius=35
         mNextButton.layer.masksToBounds=true
-        mViewButton.spacing=90
-        mNextButton.setTitle("Next", for: .normal)
+        
+        mStartButton.layer.cornerRadius=35
+        mStartButton.layer.masksToBounds=true
+        mStartButton.isHidden = true
     }
     private func changeUI(_ index:Int)
     {
@@ -41,8 +44,9 @@ class ViewController: UIViewController {
         mSubtitleLabel.text = subtitle[index]
         
         if index == 2{
-            mNextButton.setTitle("Start", for: .normal)
+            mViewButton.isHidden=true
             mSkipButton.isHidden = true
+            mStartButton.isHidden = false
         }
     }
     
